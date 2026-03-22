@@ -3,7 +3,6 @@
 A curated collection of logical and problem-solving questions that I’ve encountered during coding interviews and practice sessions.
 This repository is focused on strengthening core programming concepts, improving problem-solving skills, and preparing for technical interviews.
 
----
 
 # 🚀 Purpose
 
@@ -17,7 +16,6 @@ Understanding core JavaScript concepts deeply
 
 Preparing for frontend and React Native interviews
 
----
 
 # 🛠 Tech Stack
 
@@ -25,7 +23,6 @@ Preparing for frontend and React Native interviews
 
 JavaScript
 
----
 
 # ✨ Features
 
@@ -41,7 +38,6 @@ Real interview-based scenarios
 
 Regular updates with new problems
 
----
 
 # 📚 Topics Covered
 ## 🔹 JavaScript Fundamentals
