@@ -1,9 +1,11 @@
-🧠 Logical Problem Solving Repository
+# 🧠 Logical Problem Solving Repository
 
 A curated collection of logical and problem-solving questions that I’ve encountered during coding interviews and practice sessions.
 This repository is focused on strengthening core programming concepts, improving problem-solving skills, and preparing for technical interviews.
 
-🚀 Purpose
+---
+
+# 🚀 Purpose
 
 This repository is dedicated to:
 
@@ -15,13 +17,17 @@ Understanding core JavaScript concepts deeply
 
 Preparing for frontend and React Native interviews
 
-🛠 Tech Stack
+---
 
-Language Used:
+# 🛠 Tech Stack
+
+## Language Used:
 
 JavaScript
 
-✨ Features
+---
+
+# ✨ Features
 
 Hand-picked interview questions
 
@@ -35,8 +41,10 @@ Real interview-based scenarios
 
 Regular updates with new problems
 
-📚 Topics Covered
-🔹 JavaScript Fundamentals
+---
+
+# 📚 Topics Covered
+## 🔹 JavaScript Fundamentals
 
 Variables, Scope, Hoisting
 
@@ -46,7 +54,7 @@ Execution Context
 
 this keyword
 
-🔹 Arrays & Methods
+## 🔹 Arrays & Methods
 
 map, filter, reduce
 
@@ -56,7 +64,7 @@ flattening arrays
 
 custom polyfills
 
-🔹 Asynchronous JavaScript
+## 🔹 Asynchronous JavaScript
 
 Callbacks
 
@@ -66,7 +74,7 @@ Async/Await
 
 Event Loop (Microtask vs Macrotask)
 
-🔹 Problem Solving Patterns
+## 🔹 Problem Solving Patterns
 
 Two pointers
 
@@ -76,7 +84,7 @@ Recursion
 
 Frequency counter
 
-🔹 Advanced Concepts
+## 🔹 Advanced Concepts
 
 Debouncing & Throttling
 
