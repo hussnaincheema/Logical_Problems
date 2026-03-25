@@ -161,3 +161,110 @@ const reversedNum = reverseNumber(12345);
 console.log(reversedNum);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 10. How to Sort an Array
+
+const sortArray = (arr) => {
+
+      let sortedArray = arr.sort((a,b) => a-b);
+
+      return sortedArray;
+}
+
+const sorted = sortArray([5, 2, 9, 1, 5, 6]);
+
+console.log(sorted);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 11. How to Swap two numbers without using third
+
+const swapNumbers = (a, b) => {
+      [a, b] = [b, a];
+
+      return [a, b];
+}
+
+const swapped = swapNumbers(5, 10);
+
+console.log(swapped);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 11. Find Second Largest and Third Largest Numbers.
+
+const findLargest = (arr) => {
+    let largest = -Infinity;
+    let secondLargest = -Infinity;
+    let thirdLargest = -Infinity;
+
+    for (let num of arr) {
+        if (num > largest) {
+            thirdLargest = secondLargest;
+            secondLargest = largest;
+            largest = num;
+        } 
+        else if (num > secondLargest && num !== largest) {
+            thirdLargest = secondLargest;
+            secondLargest = num;
+        } 
+        else if (num > thirdLargest && num !== secondLargest) {
+            thirdLargest = num;
+        }
+    }
+
+    return [secondLargest, thirdLargest];
+}
+
+const largestNumbers = findLargest([5, 2, 9, 1, 5, 6]);
+console.log(largestNumbers); 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 12. Find Second Smallest and Third Smallest Numbers.
+
+const findSmallest = (arr) => {
+    let smallest = Infinity;
+    let secondSmallest = Infinity;
+    let thirdSmallest = Infinity;
+
+    for (let num of arr) {
+        if (num < smallest) {
+            thirdSmallest = secondSmallest;
+            secondSmallest = smallest;
+            smallest = num;
+        } 
+        else if (num < secondSmallest && num !== smallest) {
+            thirdSmallest = secondSmallest;
+            secondSmallest = num;
+        } 
+        else if (num < thirdSmallest && num !== secondSmallest) {
+            thirdSmallest = num;
+        }
+    }
+
+    return [secondSmallest, thirdSmallest];
+}
+
+const smallestNumbers = findSmallest([5, 2, 9, 1, 5, 6]);
+console.log(smallestNumbers); 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 13. Check if a number is Prime.
+
+const isPrime = (num) => {
+      if (num <= 1) return false;   
+
+      for (let i = 2; i < num; i++) {
+            if (num % i === 0) return false;
+      }
+
+      return true;      
+}
+
+const primeCheck = isPrime(7);
+
+console.log(primeCheck);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
