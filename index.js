@@ -107,3 +107,57 @@ console.log(sortedDuplicates);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 7. How to find Factorial of a Number
+
+const factorial = (n) => {
+      let result = 1;
+
+      for(let i=1; i<=n; i++){
+            result = result *i;
+      }
+
+      return result;
+}
+
+const fact = factorial(5);
+
+console.log(fact);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 8. How to Reverse a String
+
+const reversedString = (str) =>{
+      let reverse = '';
+
+      for(let i=str.length - 1; i>=0; i--){
+            reverse = reverse + str[i];
+      }
+
+      return reverse;
+}
+
+const reversed = reversedString("Hello World!");
+
+console.log(reversed);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 9. How to Reverse a Number
+
+const reverseNumber = (num) => {
+    let reversed = 0;
+
+    for (let i = num; i > 0; i = Math.floor(i / 10)) {
+        let digit = i % 10;
+        reversed = reversed * 10 + digit;
+    }
+
+    return reversed;
+}
+
+const reversedNum = reverseNumber(12345);
+
+console.log(reversedNum);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
