@@ -942,3 +942,266 @@ const noSpacesTrim = removeSpacesTrim(" Hello World! This is a test. ");
 console.log(noSpacesTrim);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 42. Check if any element in an array satisfies a given condition (greater than 100).
+const hasElementGreaterThan100 = (arr) => {
+  return arr.some((num) => num > 100);
+};
+
+const checkGreaterThan100 = hasElementGreaterThan100([10, 50, 150, 20]);
+
+console.log(checkGreaterThan100);
+
+// Using For Loop
+
+const hasGreaterThan100 = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 100) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const checkGreaterThan100Loop = hasGreaterThan100([10, 50, 150, 20]);
+
+console.log(checkGreaterThan100Loop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 43. Find the average of an array of numbers.
+
+const average = (arr) => {
+  if (arr.length === 0) return 0;
+
+  let sum = arr.reduce((acc, num) => acc + num, 0);
+  return sum / arr.length;
+};
+
+const avg = average([10, 20, 30, 40, 50]);
+
+console.log(avg);
+
+// Using For Loop
+
+const averageLoop = (arr) => {
+  if (arr.length === 0) return 0;
+
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  return sum / arr.length;
+};
+
+const avgLoop = averageLoop([10, 20, 30, 40, 50]);
+
+console.log(avgLoop);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 44. Find the median of an array of numbers.
+
+const median = (arr) => {
+  if (arr.length === 0) return 0;
+
+  const sorted = arr.slice().sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+
+  if (sorted.length % 2 === 0) {
+    return (sorted[mid - 1] + sorted[mid]) / 2;
+  } else {
+    return sorted[mid];
+  }
+};
+
+const med = median([10, 20, 30, 40, 50]);
+
+console.log(med);
+
+// Using For Loop
+
+const medianLoop = (arr) => {
+  if (arr.length === 0) return 0;
+
+  const sorted = arr.slice().sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+
+  if (sorted.length % 2 === 0) {
+    return (sorted[mid - 1] + sorted[mid]) / 2;
+  } else {
+    return sorted[mid];
+  }
+};
+
+const medLoop = medianLoop([10, 20, 30, 40, 50]);
+
+console.log(medLoop); 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 45. Find the mode of an array of numbers.
+
+const mode = (arr) => {
+  const frequency = {};
+  let maxFreq = 0;
+  let modes = [];
+
+  for (let num of arr) {
+    frequency[num] = (frequency[num] || 0) + 1;   
+    if (frequency[num] > maxFreq) {
+      maxFreq = frequency[num];
+    }
+  }   
+
+  for (let num in frequency) {
+    if (frequency[num] === maxFreq) {
+      modes.push(Number(num));
+    }
+  }
+
+  return modes;
+};
+
+const modeResult = mode([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(modeResult);  
+
+// Using For Loop
+
+const modeLoop = (arr) => {
+  const frequency = {};
+  let maxFreq = 0;
+  let modes = [];
+
+  for (let i = 0; i < arr.length; i++) {  
+    let num = arr[i];
+    frequency[num] = (frequency[num] || 0) + 1; 
+    if (frequency[num] > maxFreq) {
+      maxFreq = frequency[num];
+    }
+  }
+
+  for (let num in frequency) {
+    if (frequency[num] === maxFreq) {
+      modes.push(Number(num));
+    }
+  }
+
+  return modes;
+};
+
+const modeLoopResult = modeLoop([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(modeLoopResult);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 46. First Letter of String to Uppercase.
+
+const capitalizeFirstLetter = (str) => {
+  if (str.length === 0) return str;
+
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const capitalized = capitalizeFirstLetter("hello world");
+
+console.log(capitalized);
+
+// Using For Loop
+
+const capitalizeFirstLetterLoop = (str) => {
+  if (str.length === 0) return str; 
+  let result = str.charAt(0).toUpperCase();
+
+  for (let i = 1; i < str.length; i++) {
+    result += str.charAt(i);
+  }
+
+  return result;
+};    
+
+const capitalizedLoop = capitalizeFirstLetterLoop("hello world");
+
+console.log(capitalizedLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 47. Convert String to Title Case.
+
+const titleCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
+const titleCased = titleCase("hello world from javascript");
+
+console.log(titleCased);
+
+// Using For Loop
+
+const titleCaseLoop = (str) => {
+  const words = str.toLowerCase().split(" ");
+  let result = "";  
+  for (let i = 0; i < words.length; i++) {  
+    let word = words[i];
+    result += word.charAt(0).toUpperCase() + word.slice(1); 
+    if (i < words.length - 1) {
+      result += " ";
+    }
+  } 
+  return result;
+} 
+
+const titleCasedLoop = titleCaseLoop("hello world from javascript");
+
+console.log(titleCasedLoop);  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 48. Convert String to Camel Case.
+
+const camelCase = (str) => {  
+  return str
+    .toLowerCase()
+    .split(" ") 
+    .map((word, index) => {
+      if (index === 0) {
+        return word;
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join("");
+}
+
+const camelCased = camelCase("hello world from javascript");
+
+console.log(camelCased);
+
+// Using For Loop
+
+const camelCaseLoop = (str) => {  
+  const words = str.toLowerCase().split(" ");
+  let result = "";  
+  for (let i = 0; i < words.length; i++) {  
+    let word = words[i];  
+    if (i === 0) {
+      result += word;
+    } else {
+      result += word.charAt(0).toUpperCase() + word.slice(1);
+    }
+  } 
+  return result;
+}
+
+const camelCasedLoop = camelCaseLoop("hello world from javascript");
+
+console.log(camelCasedLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
