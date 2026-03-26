@@ -831,4 +831,45 @@ const compressed = compressString("aaabbcaa");
 
 console.log(compressed);    
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+
+// 39. Write a function to find the longest word in a given string.
+
+// Using Built-in Methods
+
+
+const longestWord = (str) => {
+
+  const words = str.split(" ");
+  let longest = "";
+
+  for(let word of words){
+    if(word.length > longest.length){
+      longest = word;
+    }
+  }
+
+  return longest;
+}
+
+const longestW = longestWord("The quick brown fox jumps over the lazy dog");
+
+console.log(longestW);
+
+// Using Reduce Method
+
+const longestWordReduce = (str) => {
+
+  const words = str.split(" ");
+
+  return words.reduce((longest, current) => {
+    return current.length > longest.length ? current : longest;
+  }, "");
+
+}
+
+const longestWReduce = longestWordReduce("The quick brown fox jumps over the lazy dog");
+
+console.log(longestWReduce);  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
