@@ -873,3 +873,72 @@ const longestWReduce = longestWordReduce("The quick brown fox jumps over the laz
 console.log(longestWReduce);  
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 40. Group Array Items by Property.
+
+// const users = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 30 },
+//   { name: "Charlie", age: 25 },
+//   { name: "David", age: 30 },
+//   { name: "Eve", age: 35 }
+// ];
+
+const grouped = users.reduce((acc, user) => {
+  const key = user.age;
+
+  if (!acc[key]) {
+    acc[key] = [];
+  }
+
+  acc[key].push(user);
+  return acc;
+}, {});
+
+console.log(grouped);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 41. Remove all spaces from a given string.
+
+// Input - " Hello World! This is a test. "
+
+// Output - "HelloWorld!Thisisatest."
+
+const removeSpaces = (str) => {
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
+      result += str[i];
+    }
+  }
+
+  return result;
+};
+
+const noSpaces = removeSpaces(" Hello World! This is a test. ");
+
+console.log(noSpaces);
+
+// Using split() + join()
+
+const removeSpacesSplit = (str) => {
+  return str.split(" ").join("");
+};
+
+const noSpacesSplit = removeSpacesSplit(" Hello World! This is a test. ");
+
+console.log(noSpacesSplit);
+
+// Using Trim()
+
+const removeSpacesTrim = (str) => {
+  return str.trim();
+};
+
+const noSpacesTrim = removeSpacesTrim(" Hello World! This is a test. ");
+
+console.log(noSpacesTrim);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
