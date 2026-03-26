@@ -780,3 +780,55 @@ const movedZeros = moveZeros([0, 1, 0, 3, 12]);
 console.log(movedZeros);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 37. Find Longest String in an Array.
+
+// Input: ["apple", "banana", "cherry", "date"]
+
+// Output: "banana"
+
+const longestString = (arr) => {
+
+  let longest = "";
+
+  for(let str of arr){
+    if(str.length > longest.length){
+      longest = str;
+    }
+  }
+
+  return longest;
+}
+
+const longestStr = longestString(["apple", "banana", "cherry", "date"]);
+
+console.log(longestStr);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 38. Input: "aaabbcaa"
+
+// Output: "a3b2c1a2"
+
+const compressString = (str) => {
+
+  let result = "";
+  let count = 1;
+
+  for(let i = 0; i < str.length; i++){
+    if(str[i] === str[i + 1]){
+      count++;
+    } else {
+      result += str[i] + count;
+      count = 1;
+    }
+  }
+
+  return result;
+}
+
+const compressed = compressString("aaabbcaa");
+
+console.log(compressed);    
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
