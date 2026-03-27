@@ -1413,7 +1413,77 @@ console.log(flattenedFlat);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 54. Convert Number to Array of Digits.
 
+// Using String Conversion
+
+const numberToDigitsString = (num) => {
+  const digits = num.toString().split("").map(Number);
+  return digits;
+}
+
+const digitsFromNumberString = numberToDigitsString(12345);
+
+console.log(digitsFromNumberString);
+
+// Using Spread Operator
+
+const numberToDigitsSpread = (num) => {
+  const digits = [...num.toString()].map(Number);
+  return digits;
+}
+
+const digitsFromNumberSpread = numberToDigitsSpread(12345);
+
+console.log(digitsFromNumberSpread);
+
+// Using For Loop 
+
+const numberToDigitsLoop = (num) => {
+  const digits = [];
+  const numStr = num.toString();
+
+  for(let i=0; i<numStr.length; i++){
+    digits.push(Number(numStr[i]));
+  }
+
+  return digits;
+}
+
+const digitsFromNumberLoop = numberToDigitsLoop(12345);
+
+console.log(digitsFromNumberLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 55. Sum of all elements in an Array.
+
+// Using Reduce Method
+
+const sumArrayReduce = (arr) => {
+  const sum = arr.reduce((acc, num) => acc + num, 0);
+  return sum;
+}
+
+const sumReduce = sumArrayReduce([1, 2, 3, 4, 5]);
+
+console.log(sumReduce);
+
+// Using For Loop
+
+const sumArrayLoop = (arr) => {
+  let sum = 0;
+
+  for(let i=0; i<arr.length; i++){
+    sum += arr[i];
+  }
+
+  return sum;
+}
+
+const sumLoop = sumArrayLoop([1, 2, 3, 4, 5]);
+
+console.log(sumLoop); 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
