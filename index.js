@@ -1288,3 +1288,137 @@ console.log(stringFromCharArrayLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 51. Move all Zeroes to the end of an Array
+
+// Using Loop
+
+const moveZeroes = (arr) => {
+  let result = [];
+  let zeroCount = 0;
+
+  for(let num of arr){
+    if(num === 0){
+      zeroCount++;
+    } else {
+      result.push(num);
+    }
+  }
+
+  for(let i=0; i<zeroCount; i++){
+    result.push(0);
+  }
+
+  return result;
+}
+
+const movedZeroes = moveZeroes([0, 1, 0, 3, 12]);
+
+console.log(movedZeroes);
+
+// Using Filter + Concat
+
+const moveZeroesFilter = (arr) => {
+  const nonZeroes = arr.filter(num => num !== 0);
+  const zeroes = arr.filter(num => num === 0);
+  const result = nonZeroes.concat(zeroes);
+  return result;
+}
+
+const movedZeroesFilter = moveZeroesFilter([0, 1, 0, 3, 12]);
+
+console.log(movedZeroesFilter);
+
+// Using Filter + Spread Operator
+
+const moveZeroesSpread = (arr) => {
+  const nonZeroes = arr.filter(num => num !== 0);
+  const zeroes = arr.filter(num => num === 0);
+  const result = [...nonZeroes, ...zeroes];
+  return result;
+}
+
+const movedZeroesSpread = moveZeroesSpread([0, 1, 0, 3, 12]);
+
+console.log(movedZeroesSpread);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+myFunc();
+
+var myFunc = () => {
+  console.log("One");
+};
+
+myFunc();
+
+function myFunc ()  {
+  console.log("Two");
+}
+
+myFunc();
+
+// OUTPUT
+
+Two
+One
+One
+
+// Explanation
+
+// 🧠 Step-by-Step Explanation
+// 🔹 1. Hoisting Phase
+
+// During hoisting:
+
+// 👉 Function declaration is fully hoisted:
+// function myFunc () {
+//   console.log("Two");
+// }
+// 👉 var is hoisted but initialized as undefined:
+// var myFunc; // undefined
+
+// ⚠️ But important rule:
+
+// 👉 Function declaration takes priority over var
+
+// So after hoisting, internally it becomes:
+
+// var myFunc = function () {
+//   console.log("Two");
+// };
+// 🔹 2. Execution Phase
+// ▶️ First Call
+// myFunc();
+
+// 👉 Calls the function declaration
+// ✅ Output:
+
+// Two
+// ▶️ Then this runs:
+// var myFunc = () => {
+//   console.log("One");
+// };
+
+// 👉 Now myFunc is reassigned to arrow function
+
+// ▶️ Second Call
+// myFunc();
+
+// 👉 Calls new function
+// ✅ Output:
+
+// One
+// ▶️ Function Declaration (already hoisted, ignored now)
+// function myFunc () {
+//   console.log("Two");
+// }
+
+// 👉 No effect now (already overridden)
+
+// ▶️ Third Call
+// myFunc();
+
+// 👉 Still arrow function
+// ✅ Output:
+
+// One
