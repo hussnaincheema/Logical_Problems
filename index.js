@@ -1343,6 +1343,80 @@ console.log(movedZeroesSpread);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 52. Check if Value is Array.
+
+// Using Arrow Function (Best Way)
+
+const isArray = (value) => {
+
+  const result = Array.isArray(value);
+  return result;
+}
+
+const arrayCheck = isArray([1, 2, 3]);
+
+console.log(arrayCheck);
+
+const notArrayCheck = isArray("Hello");
+
+console.log(notArrayCheck);
+
+// Alternative (Arrow + instanceof)
+
+const isArrayInstanceof = (value) => {
+
+  const result = value instanceof Array;
+  return result;
+}
+
+const arrayCheckInstanceof = isArrayInstanceof([1, 2, 3]);  
+console.log(arrayCheckInstanceof);
+
+const notArrayCheckInstanceof = isArrayInstanceof("Hello");
+console.log(notArrayCheckInstanceof);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 53. Flatten Nested Arrays.
+
+// Using Recursion
+
+const flattenArray = (arr) => {
+  let result = [];
+
+  for(let item of arr){
+    if(Array.isArray(item)){
+      result = result.concat(flattenArray(item));
+    } 
+    else {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+
+const nestedArray = [1, [2, [3, 4], 5], 6];
+const flattened = flattenArray(nestedArray);
+
+console.log(flattened);
+
+// Using Built-in flat() method
+
+const flattenArrayFlat = (arr) => {
+  return arr.flat(Infinity);
+}
+
+const flattenedFlat = flattenArrayFlat(nestedArray);
+
+console.log(flattenedFlat);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 myFunc();
 
 var myFunc = () => {
