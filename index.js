@@ -1205,3 +1205,86 @@ const camelCasedLoop = camelCaseLoop("hello world from javascript");
 console.log(camelCasedLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 49. Convert String to Character Array
+
+// Using split()
+
+const stringToCharArraySplit = (str) =>{
+  const convertedStringSplit = str.split("");
+  return convertedStringSplit;
+}
+
+const charArraySplit = stringToCharArraySplit("Hello World");
+
+console.log(charArraySplit);
+
+// Using Spread Operator
+
+const stringToCharArraySpread = (str) => {
+  const convertedStringSpread = [...str];
+  return convertedStringSpread;
+}
+
+const charArraySpread = stringToCharArraySpread("Hello World");
+
+console.log(charArraySpread);
+
+// Using Array.from()
+
+const stringToCharArrayFrom = (str) => {
+  const convertedStringFrom = Array.from(str);
+  return convertedStringFrom;
+}
+
+const charArrayFrom = stringToCharArrayFrom("Hello World");
+
+console.log(charArrayFrom);
+
+// Using For Loop
+
+const stringToCharArrayLoop = (str) => {
+  const convertedStringLoop = [];
+
+  for(let i=0; i<str.length; i++){
+    convertedStringLoop.push(str[i]);
+  }
+  return convertedStringLoop;
+}
+
+const charArrayLoop = stringToCharArrayLoop("Hello World");
+
+console.log(charArrayLoop);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 50. Convert Character Array to String
+
+// Using join()
+
+const charArrayToStringJoin = (arr) => {
+  const convertedCharArrayJoin = arr.join("");
+  return convertedCharArrayJoin;
+}
+
+const stringFromCharArrayJoin = charArrayToStringJoin(['H', 'e', 'l', 'l', 'o']);
+
+console.log(stringFromCharArrayJoin);
+
+// Using For Loop
+
+const charArrayToStringLoop = (arr) => {
+  let convertedCharArrayLoop = "";
+
+  for(let i=0; i<arr.length; i++){
+    convertedCharArrayLoop += arr[i];
+  }
+  return convertedCharArrayLoop;
+}
+
+const stringFromCharArrayLoop = charArrayToStringLoop(['H', 'e', 'l', 'l', 'o']);
+
+console.log(stringFromCharArrayLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
