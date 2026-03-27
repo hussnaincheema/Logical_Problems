@@ -1487,6 +1487,103 @@ console.log(sumLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 56. Reverse an Array.
+
+// Using Built-in reverse() method
+
+const reverseArrayBuiltIn = (arr) => {
+  const reversed = arr.slice().reverse();
+  return reversed;
+}
+
+const reversedBuiltIn = reverseArrayBuiltIn([1, 2, 3, 4, 5]); 
+console.log(reversedBuiltIn);
+
+// Using For Loop
+
+const reverseArrayLoop = (arr) => {
+  const reversed = [];
+
+  for(let i=arr.length - 1; i>=0; i--){
+    reversed.push(arr[i]);
+  }
+
+  return reversed;
+}
+
+const reversedLoop = reverseArrayLoop([1, 2, 3, 4, 5]);
+console.log(reversedLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 57. Count the frequesncy of each element in an Array.
+
+// Using Reduce Method
+
+const countFrequencyReduce = (arr) => {
+  const frequency = arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+
+  return frequency;
+}
+
+const frequencyReduce = countFrequencyReduce([1, 2, 3, 2, 4, 1, 5]);  
+console.log(frequencyReduce);
+
+// Using For Loop
+
+const countFrequencyLoop = (arr) => {
+  const frequency = {};
+
+  for(let i=0; i<arr.length; i++){
+    let num = arr[i];
+    frequency[num] = (frequency[num] || 0) + 1;
+  }
+
+  return frequency;
+}
+
+const frequencyLoop = countFrequencyLoop([1, 2, 3, 2, 4, 1, 5]);
+console.log(frequencyLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 58. Convert an object into an array of key-value pairs.
+
+// Using Object.entries()
+
+const objectToKeyValuePairsEntries = (obj) => {
+  const keyValuePairs = Object.entries(obj);
+  return keyValuePairs;
+}
+
+const obj = { a: 1, b: 2, c: 3 };
+const keyValuePairsEntries = objectToKeyValuePairsEntries(obj);
+
+console.log(keyValuePairsEntries);
+
+// Using For Loop
+
+const objectToKeyValuePairsLoop = (obj) => {
+  const keyValuePairs = [];
+
+  for(let key in obj){
+    if(obj.hasOwnProperty(key)){
+      keyValuePairs.push([key, obj[key]]);
+    } 
+  }
+
+  return keyValuePairs;
+}
+
+const keyValuePairsLoop = objectToKeyValuePairsLoop(obj);
+
+console.log(keyValuePairsLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 myFunc();
 
 var myFunc = () => {
