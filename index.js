@@ -1584,6 +1584,58 @@ console.log(keyValuePairsLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 59. Write a function to split (chunk) an array into smaller arrays of a given size.
+
+// Using For Loop
+
+const chunkArrayLoop = (arr, size) => {
+  const chunks = [];
+
+  for(let i=0; i<arr.length; i+=size){
+    chunks.push(arr.slice(i, i + size));
+  }
+
+  return chunks;
+}
+
+const chunkedLoop = chunkArrayLoop([1, 2, 3, 4, 5, 6], 2);
+console.log(chunkedLoop);
+
+// Using While Loop
+
+const chunkArrayWhile = (arr, size) => {
+  const chunks = [];
+  let i = 0;
+
+  while(i < arr.length){
+    chunks.push(arr.slice(i, i + size));
+    i += size;
+  }
+
+  return chunks;
+}
+
+const chunkedWhile = chunkArrayWhile([1, 2, 3, 4, 5, 6], 2);
+console.log(chunkedWhile);
+
+// Using Reduce Method
+
+const chunkArrayReduce = (arr, size) => {
+  return arr.reduce((chunks, item, index) => {
+    if(index % size === 0){
+      chunks.push([item]);
+    } else {
+      chunks[chunks.length - 1].push(item);
+    }
+    return chunks;
+  }, []);
+}
+
+const chunkedReduce = chunkArrayReduce([1, 2, 3, 4, 5, 6], 2);
+console.log(chunkedReduce);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 myFunc();
 
 var myFunc = () => {
