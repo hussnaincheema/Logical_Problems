@@ -1636,6 +1636,31 @@ console.log(chunkedReduce);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 60. Write a function Sort an array in ascending order based on the frequency of elements.
+
+const sortByFrequency = (arr) => {
+  const freq = {};
+
+  // Step 1: Count frequency
+  for (let i = 0; i < arr.length; i++) {
+    freq[arr[i]] = (freq[arr[i]] || 0) + 1;
+  }
+
+  // Step 2: Get unique elements
+  const unique = [...new Set(arr)];
+
+  // Step 3: Sort by frequency
+  unique.sort((a, b) => freq[a] - freq[b]);
+
+  return unique;
+};
+
+const sortedByFrequency = sortByFrequency([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(sortedByFrequency); 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 myFunc();
 
 var myFunc = () => {
