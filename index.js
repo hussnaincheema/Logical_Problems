@@ -2068,15 +2068,246 @@ const mapToObjectLoop = (map) => {
   return obj;
 };
 
-const map = new Map([
+const mapLoop = new Map([
   ["a", 1],
   ["b", 2],
   ["c", 3]
 ]);
 
-console.log(mapToObjectLoop(map)); // { a: 1, b: 2, c: 3 }
+console.log(mapToObjectLoop(mapLoop)); // { a: 1, b: 2, c: 3 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 73. Write a function to convert a Set into an array.
+
+// Using Spread Operator
+
+const setToArraySpread = (set) => {
+  return [...set];
+}
+
+const mySet = new Set([1, 2, 3]);
+console.log(setToArraySpread(mySet)); // [1, 2, 3]  
+
+// Using Array.from()
+
+const setToArrayFrom = (set) => {
+  return Array.from(set);
+} 
+const mySetFrom = new Set([1, 2, 3]);
+console.log(setToArrayFrom(mySetFrom)); // [1, 2, 3]
+
+// Using For..of Loop
+
+const setToArrayLoop = (set) => {
+  const arr = [];
+  for (const item of set) {
+    arr.push(item);
+  } 
+  return arr;
+}
+
+const mySetLoop = new Set([1, 2, 3]);
+console.log(setToArrayLoop(mySetLoop)); // [1, 2, 3]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 74. Write a function to filter out all falsy values (false, 0, "", null, undefined, NaN) from an array.
+
+// Using Filter Method
+
+const filterFalsy = (arr) => {
+  return arr.filter(Boolean);
+}
+
+const filteredFalsy = filterFalsy([0, 1, false, 2, "", 3, null, 4, undefined, 5, NaN]);
+
+console.log(filteredFalsy); // [1, 2, 3, 4, 5]
+
+// Using For Loop
+
+const filterFalsyLoop = (arr) => {
+  const result = [];
+
+  for(let i=0; i<arr.length; i++){
+    if(arr[i]){
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+} 
+
+const filteredFalsyLoop = filterFalsyLoop([0, 1, false, 2, "", 3, null, 4, undefined, 5, NaN]);
+
+console.log(filteredFalsyLoop); // [1, 2, 3, 4, 5]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 75. Write a function to remove the first non-repeating element from an array.
+
+// Using For Loop
+
+const removeFirstNonRepeating = (arr) => {
+  const frequency = {};
+
+  // Count frequency
+  for(let i=0; i<arr.length; i++){
+    frequency[arr[i]] = (frequency[arr[i]] || 0) + 1;
+  } 
+  // Find first non-repeating
+  for(let i=0; i<arr.length; i++){
+    if(frequency[arr[i]] === 1){
+      arr.splice(i, 1);
+      break;
+    }   
+  }
+
+  return arr;
+}
+
+const updatedArrayNonRepeating = removeFirstNonRepeating([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(updatedArrayNonRepeating); // [2, 3, 2, 4, 1, 5]
+
+// Using Built-in Methods
+
+const removeFirstNonRepeatingBuiltIn = (arr) => {
+  const frequency = arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {}); 
+  const firstNonRepeating = arr.find(num => frequency[num] === 1);  
+  if (firstNonRepeating !== undefined) {
+    arr.splice(arr.indexOf(firstNonRepeating), 1);
+  }
+  return arr;
+};
+
+const updatedArrayNonRepeatingBuiltIn = removeFirstNonRepeatingBuiltIn([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(updatedArrayNonRepeatingBuiltIn); // [2, 3, 2, 4, 1, 5]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 76. Write a function to find most repeated element in an array.
+
+// Using For Loop
+
+const mostRepeatedElement = (arr) => {
+  const frequency = {};
+  let maxFreq = 0;
+  let mostRepeated = null;
+
+  for(let i=0; i<arr.length; i++){
+    frequency[arr[i]] = (frequency[arr[i]] || 0) + 1;
+    if(frequency[arr[i]] > maxFreq){
+      maxFreq = frequency[arr[i]];
+      mostRepeated = arr[i];
+    }
+  }
+
+  return mostRepeated;
+} 
+
+const mostRepeated = mostRepeatedElement([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(mostRepeated); // 1 or 2 (both appear twice)
+
+// Using Built-in Methods
+
+const mostRepeatedElementBuiltIn = (arr) => {
+  const frequency = arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+  return Object.keys(frequency).reduce((a, b) => frequency[a] > frequency[b] ? a : b);
+};
+
+const mostRepeatedBuiltIn = mostRepeatedElementBuiltIn([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(mostRepeatedBuiltIn); // 1 or 2 (both appear twice)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 77. Write a function to find the least repeated element in an array.
+
+// Using For Loop
+
+const leastRepeatedElement = (arr) => {
+  const frequency = {};
+  let minFreq = Infinity;
+  let leastRepeated = null;
+
+  for(let i=0; i<arr.length; i++){
+    frequency[arr[i]] = (frequency[arr[i]] || 0) + 1;
+  } 
+  for(let key in frequency){
+    if(frequency[key] < minFreq){
+      minFreq = frequency[key];
+      leastRepeated = key;
+    }
+  }
+
+  return leastRepeated;
+}
+
+const leastRepeated = leastRepeatedElement([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(leastRepeated); // 3, 4, or 5 (each appears once)
+
+// Using Built-in Methods
+
+const leastRepeatedElementBuiltIn = (arr) => {
+  const frequency = arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {}); 
+  return Object.keys(frequency).reduce((a, b) => frequency[a] < frequency[b] ? a : b);
+}
+
+const leastRepeatedBuiltIn = leastRepeatedElementBuiltIn([1, 2, 3, 2, 4, 1, 5]);
+
+console.log(leastRepeatedBuiltIn); // 3, 4, or 5 (each appears once)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 78. Write a function to separate Even and Odd numbers in an array.
+
+// Using For Loop
+const separateEvenOdd = (arr) => {
+  const even = [];
+  const odd = [];
+  
+  for(let i=0; i<arr.length; i++){  
+    if(arr[i] % 2 === 0){
+      even.push(arr[i]);
+    } else {
+      odd.push(arr[i]);
+    } 
+  }
+
+  return { even, odd };
+}
+
+const separated = separateEvenOdd([1, 2, 3, 4, 5, 6]);
+
+console.log(separated); // { even: [2, 4, 6], odd: [1, 3, 5] }
+
+// Using Built-in Methods
+
+const separateEvenOddBuiltIn = (arr) => {
+  const even = arr.filter(num => num % 2 === 0);
+  const odd = arr.filter(num => num % 2 !== 0);
+  return { even, odd };
+}
+
+const separatedBuiltIn = separateEvenOddBuiltIn([1, 2, 3, 4, 5, 6]);
+
+console.log(separatedBuiltIn); // { even: [2, 4, 6], odd: [1, 3, 5] }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
