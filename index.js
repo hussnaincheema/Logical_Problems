@@ -1859,6 +1859,224 @@ console.log(prefixCountRegex);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 67. Write a function to find the first peak element in an array. A peak element is one that is greater than its immediate neighbors.
+
+// Using For Loop
+
+const findPeakElement = (arr) => {
+  for(let i=1; i<arr.length - 1; i++){
+    if(arr[i] > arr[i - 1] && arr[i] > arr[i + 1]){
+      return arr[i];
+    }
+  }
+
+  return null; // No peak found
+}
+
+const peakElement = findPeakElement([1, 3, 2, 5, 4]);
+
+console.log(peakElement);
+
+// Using Built-in Methods
+
+const findFirstPeakElementBuiltIn = (arr) =>
+  arr.find((num, i) => 
+    i > 0 && i < arr.length - 1 &&
+    num > arr[i - 1] && num > arr[i + 1]
+  ) ?? -1;
+
+const peakElementBuiltIn = findFirstPeakElementBuiltIn([1, 3, 2, 5, 4]);
+
+console.log(peakElementBuiltIn);  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 68. Write a function to find the first valley element in an array. A valley element is one that is less than its immediate neighbors.
+
+// Using For Loop
+
+const findValleyElement = (arr) => {
+  for(let i=1; i<arr.length - 1; i++){
+    if(arr[i] < arr[i - 1] && arr[i] < arr[i + 1]){
+      return arr[i];
+    }
+  }
+
+  return null; // No valley found
+}
+
+const valleyElement = findValleyElement([3, 1, 4, 2, 5]);
+
+console.log(valleyElement);
+
+// Using Built-in Methods 
+const findFirstValleyElementBuiltIn = (arr) =>
+  arr.find((num, i) => 
+    i > 0 && i < arr.length - 1 &&
+    num < arr[i - 1] && num < arr[i + 1]
+  ) ?? -1;
+
+const valleyElementBuiltIn = findFirstValleyElementBuiltIn([3, 1, 4, 2, 5]);
+
+console.log(valleyElementBuiltIn);  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 69. Write a function to check whether two arrays have the same elements in the same order.
+
+// Using For Loop
+
+const arraysEqual = (arr1, arr2) => {
+  if(arr1.length !== arr2.length) return false;
+
+  for(let i=0; i<arr1.length; i++){
+    if(arr1[i] !== arr2[i]){
+      return false;
+    }
+  }
+
+  return true;
+} 
+
+const areArraysEqual = arraysEqual([1, 2, 3], [1, 2, 3]);
+
+console.log(areArraysEqual);
+
+const areArraysNotEqual = arraysEqual([1, 2, 3], [3, 2, 1]);
+
+console.log(areArraysNotEqual);
+
+// Using JSON.stringify()
+
+const arraysEqualStringify = (arr1, arr2) => {
+  return JSON.stringify(arr1) === JSON.stringify(arr2);
+}
+
+const areArraysEqualStringify = arraysEqualStringify([1, 2, 3], [1, 2, 3]);
+
+console.log(areArraysEqualStringify);
+
+const areArraysNotEqualStringify = arraysEqualStringify([1, 2, 3], [3, 2, 1]);
+
+console.log(areArraysNotEqualStringify);
+
+// Using Built-in Methods
+
+const arraysEqualBuiltIn = (arr1, arr2) => {
+  return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
+}
+
+const areArraysEqualBuiltIn = arraysEqualBuiltIn([1, 2, 3], [1, 2, 3]);
+
+console.log(areArraysEqualBuiltIn);
+
+const areArraysNotEqualBuiltIn = arraysEqualBuiltIn([1, 2, 3], [3, 2, 1]);
+
+console.log(areArraysNotEqualBuiltIn);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 70. Write a function to remove all spaces from a string.
+
+// Using Built-in Methods
+
+const removeSpacesBuiltIn = (str) => {
+  return str.split(" ").join("");
+}
+
+const noSpace = removeSpacesBuiltIn(" Hello World! This is a test. ");
+
+console.log(noSpace);
+
+// Using For Loop
+
+const removeSpacesLoop = (str) => {
+  let result = "";
+
+  for(let i=0; i<str.length; i++){
+    if(str[i] !== " "){
+      result += str[i];
+    }
+  }
+
+  return result;
+}
+
+const noSpaceLoop = removeSpacesLoop(" Hello World! This is a test. ");
+
+console.log(noSpaceLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 71. Write a function to check if any element in an array is greater than 100.
+
+// Using Built-in Methods
+
+const hasGreaterThan100BuiltIn = (arr) => {
+  return arr.some(num => num > 100);
+}
+
+const checkGreaterThan100BuiltIn = hasGreaterThan100BuiltIn([10, 50, 150, 20]);
+
+console.log(checkGreaterThan100BuiltIn);
+
+const checkNotGreaterThan100BuiltIn = hasGreaterThan100BuiltIn([10, 50, 20]);
+
+console.log(checkNotGreaterThan100BuiltIn);
+
+// Using For Loop
+
+const hasGreaterThan100Loop = (arr) => {
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] > 100){
+      return true;
+    }
+  }
+  return false;
+} 
+
+const checkGreaterThan100Loop = hasGreaterThan100Loop([10, 50, 150, 20]);
+
+console.log(checkGreaterThan100Loop);
+
+const checkNotGreaterThan100Loop = hasGreaterThan100Loop([10, 50, 20]);
+
+console.log(checkNotGreaterThan100Loop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 72. Write a function to convert a Map into a plain JavaScript object.
+
+// Using Object.fromEntries
+const mapToObject = (map) => Object.fromEntries(map);
+
+const map = new Map([
+  ["a", 1],
+  ["b", 2],
+  ["c", 3]
+]);
+
+console.log(mapToObject(map)); // { a: 1, b: 2, c: 3 }
+
+//Using for..of Loop
+
+const mapToObjectLoop = (map) => {
+  const obj = {};
+  for (const [key, value] of map) {
+    obj[key] = value;
+  }
+  return obj;
+};
+
+const map = new Map([
+  ["a", 1],
+  ["b", 2],
+  ["c", 3]
+]);
+
+console.log(mapToObjectLoop(map)); // { a: 1, b: 2, c: 3 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
