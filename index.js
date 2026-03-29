@@ -1684,6 +1684,109 @@ console.log(sortedArray);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 62. Write an arrow function that takes a string and capitalizes the first letter of each word, returning the updated string.
+
+// Using Built-in Methods
+
+const capitalizeWords = (str) => {
+  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
+const capitalizedString = capitalizeWords("hello world from javascript");
+
+console.log(capitalizedString);
+
+// Using For Loop
+
+const capitalizeWordsLoop = (str) => {
+  const words = str.split(" ");
+  let result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    if (word.length > 0) {
+      result.push(word[0].toUpperCase() + word.slice(1));
+    }
+  }
+
+  return result.join(" ");
+};
+
+const capitalizedStringLoop = capitalizeWordsLoop("hello world from javascript");
+
+console.log(capitalizedStringLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 63. Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+
+// Using match + Regex
+
+const countVowelsShortcut = (str) => {
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0;
+}
+
+const vowelCount = countVowelsShortcut("Hello World");
+
+console.log(vowelCount);
+
+// Using For Loop
+
+const countVowelsLoop = (str) => {
+  let count = 0;
+  const vowels = "aeiouAEIOU";
+
+  for(let i=0; i<str.length; i++){
+    if(vowels.includes(str[i])){
+      count++;
+    } 
+  }
+
+  return count;
+}
+
+const vowelCountLoop = countVowelsLoop("Hello World");
+
+console.log(vowelCountLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 64. Write a function that takes an array of numbers and returns the sum of all even numbers in the array.
+
+// Using Filter + Reduce
+
+const sumEvenNumbersFilter = (arr) => {
+  return arr.filter(num => num % 2 === 0).reduce((acc, num) => acc + num, 0);
+}
+
+const sumEvenFilter = sumEvenNumbersFilter([1, 2, 3, 4, 5, 6]);
+
+console.log(sumEvenFilter);
+
+// Using For Loop 
+
+const sumEvenNumbersLoop = (arr) => {
+  let sum = 0;
+
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] % 2 === 0){
+      sum += arr[i];
+    }
+  }
+
+  return sum;
+}
+
+const sumEvenLoop = sumEvenNumbersLoop([1, 2, 3, 4, 5, 6]);
+
+console.log(sumEvenLoop);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 myFunc();
