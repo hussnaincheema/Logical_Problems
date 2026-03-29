@@ -1785,6 +1785,80 @@ console.log(sumEvenLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 65. Write a function that finds the longest prefix (continuous repeating characters from the start of the string) using an arrow function.
+
+// Using For Loop
+
+const longestPrefix = (str) => {
+  if (!str) return "";
+
+  let prefix = str[0];
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === str[0]) {
+      prefix += str[i];
+    } else {
+      break;
+    }
+  }
+
+  return prefix;
+};
+
+const longestPrefixResult = longestPrefix("aaaaabbcaa");
+
+console.log(longestPrefixResult);
+
+// Using Regex
+
+const longestPrefixRegex = (str) => {
+  const match = str.match(/^(\w)\1*/);
+  return match ? match[0] : "";
+};
+
+const longestPrefixRegexResult = longestPrefixRegex("aaaaabbcaa");
+
+console.log(longestPrefixRegexResult);  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 66. Write a function that counts the number of consecutive repeating characters from the beginning of a string using an arrow function.
+
+// Using For Loop
+
+const countPrefix = (str) => {
+  if (!str) return 0;
+
+  let count = 1;
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === str[0]) {
+      count++;
+    } else {
+      break;
+    }
+  }
+
+  return count;
+};
+
+const prefixCount = countPrefix("aaaaabbcaa");
+
+console.log(prefixCount);
+
+// Using Regex
+
+const countPrefixRegex = (str) => {
+  const match = str.match(/^(\w)\1*/);
+  return match ? match[0].length : 0;
+};
+
+const prefixCountRegex = countPrefixRegex("aaaaabbcaa");
+
+console.log(prefixCountRegex);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
