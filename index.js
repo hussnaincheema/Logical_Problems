@@ -2409,6 +2409,542 @@ console.log(rotateLeftBuiltIn(arrLeftBuiltIn, 2)); // [3, 4, 5, 1, 2]
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 82. Write a function to find the union of two arrays (all unique elements from both arrays.
+
+// Using Set
+
+const unionArraysSet = (arr1, arr2) => {
+  return [...new Set([...arr1, ...arr2])];
+} 
+
+const unionSet = unionArraysSet([1, 2, 3], [3, 4, 5]);
+
+console.log(unionSet); // [1, 2, 3, 4, 5]
+
+// Using For Loop
+
+const unionLoop = (arr1, arr2) => {
+  const result = [...arr1]; // start with all elements of arr1
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (!result.includes(arr2[i])) {
+      result.push(arr2[i]);
+    }
+  }
+
+  return result;
+};
+
+const arr1 = [1, 2, 3];
+const arr2 = [3, 4, 5];
+
+console.log(unionLoop(arr1, arr2)); // [1, 2, 3, 4, 5]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 83. Write a function to find the intersection of two arrays (only the common elements between both arrays).
+
+// Using Set
+
+const intersectionArraysSet = (arr1, arr2) => {
+  const set2 = new Set(arr2);
+  return [...new Set(arr1)].filter(num => set2.has(num));
+}
+
+const intersectionSet = intersectionArraysSet([1, 2, 3], [3, 4, 5]);  
+console.log(intersectionSet); // [3]
+
+// Using For Loop
+
+const intersectionLoop = (arr1, arr2) => {
+  const result = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i]) && !result.includes(arr1[i])) {
+      result.push(arr1[i]);
+    } 
+  }
+
+  return result;
+};
+
+const arr1Loop = [1, 2, 3];
+const arr2Loop = [3, 4, 5];
+
+console.log(intersectionLoop(arr1Loop, arr2Loop)); // [3]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 84. Write a function to find the difference between two arrays (elements that are in the first array but not in the second).
+
+// Using Set
+
+const differenceArraysSet = (arr1, arr2) => {
+  const set2 = new Set(arr2);
+  return [...new Set(arr1)].filter(num => !set2.has(num));
+}
+
+const differenceSet = differenceArraysSet([1, 2, 3], [3, 4, 5]);  
+console.log(differenceSet); // [1, 2]
+
+// Using For Loop
+
+const differenceLoop = (arr1, arr2) => {
+  const result = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i]) && !result.includes(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  } 
+  return result;
+} 
+
+const arrDiff1Loop = [1, 2, 3];
+const arrDiff2Loop = [3, 4, 5];
+
+console.log(differenceLoop(arrDiff1Loop, arrDiff2Loop)); // [1, 2]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 85. Write a function to reverse the words in a string.
+
+// Using Built-in Methods
+
+const reverseWordsBuiltIn = (str) => {
+  return str.split(" ").reverse().join(" ");
+} 
+const reversedWordsBuiltIn = reverseWordsBuiltIn("Hello World from JavaScript");
+
+console.log(reversedWordsBuiltIn); // "JavaScript from World Hello"
+
+// Using For Loop
+
+const reverseWordsLoop = (str) => {
+  const words = str.split(" "); // split string into words
+  const reversed = [];
+  for (let i = words.length - 1; i >= 0; i--) {
+    reversed.push(words[i]);
+  }
+  return reversed.join(" "); // join back into string
+};
+
+const reversedWordsLoop = reverseWordsLoop("Hello World from JavaScript");
+
+console.log(reversedWordsLoop); // "JavaScript from World Hello"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 86. Write a function to check if a string is a palindrome without using the reverse() method.
+
+// Using For Loop
+
+const isPalindromeLoop = (str) => {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(isPalindromeLoop("racecar")); // true
+console.log(isPalindromeLoop("hello"));   // false
+
+// Using Built-in Methods
+
+const isPalindromeBuiltIn = (str) => {
+  const len = str.length;
+  return str.split("").every((char, i) => char === str[len - 1 - i]);
+};
+
+console.log(isPalindromeBuiltIn("racecar")); // true
+console.log(isPalindromeBuiltIn("hello"));   // false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 87. Write a function to convert an array of objects into an object, using each object's id as the key.
+
+// Using For Loop
+
+const arrayToObjectLoop = (arr) => {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i].id] = arr[i];
+  }
+  return obj;
+};
+
+const arrLoop = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" }
+];
+
+const objectFromArrayLoop = arrayToObjectLoop(arrLoop);
+
+console.log(objectFromArrayLoop); // { '1': { id: 1, name: 'Alice' }, '2': { id: 2, name: 'Bob' }, '3': { id: 3, name: 'Charlie' } }
+
+// Using Built-in Methods
+
+const arrayToObjectBuiltIn = (arr) => {
+  return arr.reduce((obj, item) => {
+    obj[item.id] = item;
+    return obj;
+  }, {});
+}
+
+const objectFromArrayBuiltIn = arrayToObjectBuiltIn(arr);
+
+console.log(objectFromArrayBuiltIn); // { '1': { id: 1, name: 'Alice' }, '2': { id: 2, name: 'Bob' }, '3': { id: 3, name: 'Charlie' } }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 88. Write a function to check if a string is a valid email address using regular expressions.
+
+// Using Regex
+
+const isValidEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+console.log(isValidEmail("test@example.com")); // true
+console.log(isValidEmail("invalid-email"));    // false
+console.log(isValidEmail("test@.com"));       // false
+console.log(isValidEmail("test@com"));       // false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 89. Write a function to check if a string is a valid URL using regular expressions.
+
+// Using Regex
+
+const isValidURL = (url) => {
+  const regex = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/;
+  return regex.test(url);
+}
+
+console.log(isValidURL("http://example.com")); // true
+console.log(isValidURL("https://www.example.com/path")); // true
+console.log(isValidURL("invalid-url")); // false
+console.log(isValidURL("http:/example.com")); // false  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 90. Write a function to check if all elements in an array have the same type.
+
+// Using For Loop
+
+const allSameTypeLoop = (arr) => {
+  if (arr.length === 0) return true; // empty array case
+  const type = typeof arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (typeof arr[i] !== type) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const checkSameTypeLoop1 = allSameTypeLoop([1, 2, 3]);
+console.log(checkSameTypeLoop1); // true
+
+const checkSameTypeLoop2 = allSameTypeLoop([1, "2", 3]);
+console.log(checkSameTypeLoop2); // false
+
+// Using Built-in Methods
+
+const allSameTypeBuiltIn = (arr) => {
+  if (arr.length === 0) return true;
+  const type = typeof arr[0];
+  return arr.every(item => typeof item === type);
+}
+
+const checkSameTypeBuiltIn1 = allSameTypeBuiltIn([1, 2, 3]);
+console.log(checkSameTypeBuiltIn1); // true
+
+const checkSameTypeBuiltIn2 = allSameTypeBuiltIn([1, "2", 3]);
+console.log(checkSameTypeBuiltIn2); // false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 91. Write a function to clone an array so that the new array does not reference the original array.
+
+// Using Spread Operator
+
+const cloneArraySpread = (arr) => {
+  const cloned = [...arr];
+  return cloned;
+}
+
+const originalArray = [1, 2, 3];
+const clonedArraySpread = cloneArraySpread(originalArray);  
+console.log(clonedArraySpread); // [1, 2, 3]
+console.log(clonedArraySpread === originalArray); // false
+
+// Using Array.from()
+
+const cloneArrayFrom = (arr) => {
+  const cloned = Array.from(arr);
+  return cloned;
+}
+
+const clonedArrayFrom = cloneArrayFrom(originalArray);  
+console.log(clonedArrayFrom); // [1, 2, 3]
+console.log(clonedArrayFrom === originalArray); // false  
+
+// Using For Loop
+
+const cloneArrayLoop = (arr) => {
+  const cloned = [];
+  for (let i = 0; i < arr.length; i++) {
+    cloned.push(arr[i]);
+  }
+  return cloned;
+}
+
+const clonedArrayLoop = cloneArrayLoop(originalArray);  
+console.log(clonedArrayLoop); // [1, 2, 3]
+console.log(clonedArrayLoop === originalArray); // false  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 92. Write functions to convert an object into an array of key-value pairs and convert an array of key-value pairs back into an object.
+
+// Object to Array of Key-Value Pairs
+
+const objectToKeyValuePairs = (obj) => {
+  return Object.entries(obj);
+}
+
+const myObject = { a: 1, b: 2, c: 3 };
+const keyValuePairs = objectToKeyValuePairs(myObject);
+console.log(keyValuePairs); // [['a', 1], ['b', 2], ['c', 3]]
+
+// Array of Key-Value Pairs to Object
+
+const keyValuePairsToObject = (arr) => {
+  return Object.fromEntries(arr);
+}
+
+const arrayKeyValuePairs = [['a', 1], ['b', 2], ['c', 3]];
+const objectFromKeyValuePairs = keyValuePairsToObject(arrayKeyValuePairs);
+console.log(objectFromKeyValuePairs); // { a: 1, b: 2, c: 3 }
+
+// Using For Loop
+
+// Object to array
+const objectToEntriesLoop = (obj) => {
+  const result = [];
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      result.push([key, obj[key]]);
+    }
+  }
+  return result;
+};
+
+// Array to object
+const entriesToObjectLoop = (arr) => {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    const [key, value] = arr[i];
+    obj[key] = value;
+  }
+  return obj;
+};
+
+const keyValuePairsLoop = objectToEntriesLoop(myObject);
+console.log(keyValuePairsLoop); // [['a', 1], ['b', 2], ['c', 3]]
+
+const objectFromKeyValuePairsLoop = entriesToObjectLoop(keyValuePairsLoop);
+console.log(objectFromKeyValuePairsLoop); // { a: 1, b: 2, c: 3 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 93. Write a function to convert a string into an array of its characters.
+
+// Using Built-in Methods
+
+const stringToArrayBuiltIn = (str) => {
+  return str.split("");
+}
+
+const charArrayBuiltIn = stringToArrayBuiltIn("Hello");
+console.log(charArrayBuiltIn); // ['H', 'e', 'l', 'l', 'o']
+
+// Using For Loop
+
+const stringToArrayLoop = (str) => {
+  const arr = [];
+  for (let i = 0; i < str.length; i++) {
+    arr.push(str[i]);
+  }
+  return arr;
+}
+
+const charArrayLoop = stringToArrayLoop("Hello");
+console.log(charArrayLoop); // ['H', 'e', 'l', 'l', 'o']  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 94. Write a function to create an immutable object in JavaScript using Object.freeze().
+
+const createImmutableObject = (obj) => {
+  const immutableObj = Object.freeze({ ...obj });
+  return immutableObj;
+} 
+const myImmutableObject = createImmutableObject({ name: "Alice", age: 30 });
+
+console.log(myImmutableObject); // { name: 'Alice', age: 30 }
+
+// Attempting to modify the object will not work
+myImmutableObject.name = "Bob";
+console.log(myImmutableObject); // { name: 'Alice', age: 30 } 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 95. Convert an array of objects into a single object.
+
+// Using For Loop
+
+const arrayToSingleObjectLoop = (arr) => {
+  const obj = {};   
+
+  for (let i = 0; i < arr.length; i++) {
+    const key = Object.keys(arr[i])[0];
+    obj[key] = arr[i][key];
+  } 
+  return obj;
+};
+
+const arrayOfObjects = [{ a: 1 }, { b: 2 }, { c: 3 }];
+const singleObjectLoop = arrayToSingleObjectLoop(arrayOfObjects);
+console.log(singleObjectLoop); // { a: 1, b: 2, c: 3 }
+
+// Using Built-in Methods
+
+const arrayToSingleObjectBuiltIn = (arr) => {
+  return arr.reduce((obj, item) => {
+    const key = Object.keys(item)[0];
+    obj[key] = item[key];
+    return obj;
+  }, {});
+}
+
+const singleObjectBuiltIn = arrayToSingleObjectBuiltIn(arrayOfObjects);
+console.log(singleObjectBuiltIn); // { a: 1, b: 2, c: 3 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 96. Write a function to merge two objects into a single object. If both objects have the same key, the second object’s value overwrites the first.
+
+// Using For Loop
+
+const mergeObjectsLoop = (obj1, obj2) => {
+  const merged = {};
+  for (let key in obj1) {
+    if (obj1.hasOwnProperty(key)) merged[key] = obj1[key];
+  }
+  for (let key in obj2) {
+    if (obj2.hasOwnProperty(key)) merged[key] = obj2[key];
+  }
+  return merged;
+};
+
+const mergeObjects = mergeObjectsLoop({ a: 1, b: 2 }, { b: 3, c: 4 })
+
+console.log(mergeObjects);
+// { a:1, b:3, c:4 }
+
+// Using Built-in Method (Object.assign).
+
+const mergeObjectsBuiltIn = (obj1, obj2) => Object.assign({}, obj1, obj2);
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+
+const mergeObjectsBuilt = mergeObjectsBuiltIn(obj1, obj2);
+console.log(mergeObjectsBuilt); // { a:1, b:3, c:4 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 97. Write a function to copy an object so that the new object does not reference the original.
+
+// Shallow Copy
+
+const shallowCopy = (obj) => ({ ...obj });
+// or using Object.assign
+const shallowCopyAssign = (obj) => Object.assign({}, obj);
+
+const original = { name: "Hussnain", age: 24, address: { city: "Lahore" } };
+const copy = shallowCopy(original);
+
+copy.name = "Ali";          // ✅ original not affected
+copy.address.city = "Karachi"; // ❌ affects original because nested object is referenced
+
+console.log(original);
+// { name: "Hussnain", age: 24, address: { city: "Karachi" } }
+
+//Deep Copy
+
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+
+const originalDeep = { name: "Hussnain", age: 24, address: { city: "Lahore" } };
+const copyDeep = deepCopy(originalDeep);
+
+copyDeep.address.city = "Karachi"; // ✅ does NOT affect original
+
+console.log(originalDeep);
+// { name: "Hussnain", age: 24, address: { city: "Lahore" } }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 98. Use object destructuring in JavaScript and provide default values if a property does not exist.
+
+//Basic Object Destructuring with Default
+
+const getUserInfo = (user) => {
+  const { name, age, city = "Unknown" } = user;
+  return `Name: ${name}, Age: ${age}, City: ${city}`;
+};
+
+const user = { name: "Hussnain", age: 24 };
+
+console.log(getUserInfo(user));
+// Output: "Name: Hussnain, Age: 24, City: Unknown"
+
+//Nested Object Destructuring with Default
+
+const user = {
+  name: "Hussnain",
+  age: 24,
+  address: { city: "Lahore" }
+};
+
+const {
+  name,
+  age,
+  address: { city, zip = 12345 } = {}  // default for nested
+} = user;
+
+console.log(name, age, city, zip);
+// Output: "Hussnain 24 Lahore 12345"
+
+//Function Parameter Destructuring with Defaults
+
+const printUser = ({ name, age, city = "Unknown" }) => {
+  console.log(`Name: ${name}, Age: ${age}, City: ${city}`);
+};
+
+printUser({ name: "Hussnain", age: 24 });
+// Output: "Name: Hussnain, Age: 24, City: Unknown"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
