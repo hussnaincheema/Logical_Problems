@@ -2308,6 +2308,107 @@ console.log(separatedBuiltIn); // { even: [2, 4, 6], odd: [1, 3, 5] }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 79. Write a function to check which of the two arrays is sorted in ascending order.
+
+// Using For Loop
+
+const isSortedAscending = (arr) => {
+  for(let i=1; i<arr.length; i++){
+    if(arr[i] < arr[i - 1]){
+      return false;
+    }
+  }
+  return true;
+}
+
+const checkSorted1 = isSortedAscending([1, 2, 3, 4, 5]);
+
+console.log(checkSorted1); // true
+
+const checkSorted2 = isSortedAscending([5, 4, 3, 2, 1]);
+
+console.log(checkSorted2); // false
+
+// Using Built-in Methods
+
+const isSortedAscendingBuiltIn = (arr) => {
+  return arr.every((num, i) => i === 0 || num >= arr[i - 1]);
+}
+
+const checkSortedBuiltIn1 = isSortedAscendingBuiltIn([1, 2, 3, 4, 5]);
+
+console.log(checkSortedBuiltIn1); // true
+
+const checkSortedBuiltIn2 = isSortedAscendingBuiltIn([5, 4, 3, 2, 1]);
+
+console.log(checkSortedBuiltIn2); // false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 80. Write a function to rotate an array to the right by k positions.
+
+// Using For Loop
+
+const rotateRightLoop = (arr, k) => {
+  const n = arr.length;
+  k = k % n; // handle k > n
+
+  for (let i = 0; i < k; i++) {
+    const last = arr.pop(); // remove last element
+    arr.unshift(last);      // add at the beginning
+  }
+
+  return arr;
+};
+
+const arr = [1, 2, 3, 4, 5];
+console.log(rotateRightLoop(arr, 2)); // [4, 5, 1, 2, 3]
+
+// Using Built-in Methods 
+
+const rotateRightBuiltIn = (arr, k) => {
+  const n = arr.length;
+  k = k % n; // handle k > n
+  return arr.slice(-k).concat(arr.slice(0, n - k));
+}
+
+const arrBuiltIn = [1, 2, 3, 4, 5];
+console.log(rotateRightBuiltIn(arrBuiltIn, 2)); // [4, 5, 1, 2, 3]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 81. Write a function to rotate an array to the left by k positions.
+
+// Using For Loop
+
+const rotateLeftLoop = (arr, k) => {
+  const n = arr.length;
+  k = k % n; // handle k > n
+
+  for (let i = 0; i < k; i++) {
+    const first = arr.shift(); // remove first element
+    arr.push(first);          // add at the end
+  }
+
+  return arr;
+};
+
+const arrLeft = [1, 2, 3, 4, 5];
+console.log(rotateLeftLoop(arrLeft, 2)); // [3, 4, 5, 1, 2]
+
+// Using Built-in Methods
+
+const rotateLeftBuiltIn = (arr, k) => {
+  const n = arr.length;
+  k = k % n;
+  return arr.slice(k).concat(arr.slice(0, k));
+}
+
+const arrLeftBuiltIn = [1, 2, 3, 4, 5];
+console.log(rotateLeftBuiltIn(arrLeftBuiltIn, 2)); // [3, 4, 5, 1, 2]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
