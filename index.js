@@ -1661,6 +1661,31 @@ console.log(sortedByFrequency);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 61. Write an arrow function that removes a given value from an array in-place (without creating a new array) and returns the updated array.
+
+// Using For Loop
+
+const removeValueInPlace = (arr, value) => {
+  
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] === value){
+      arr.splice(i, 1);
+      i--; // Adjust index after removal
+    }
+  }
+
+  return arr;
+}
+
+const updatedArray = removeValueInPlace([1, 2, 3, 2, 4, 1, 5], 2);
+const sortedArray = updatedArray.sort((a, b) => a - b);
+
+console.log(sortedArray);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 myFunc();
 
 var myFunc = () => {
