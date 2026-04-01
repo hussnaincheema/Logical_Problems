@@ -401,6 +401,28 @@ const stringPalindromeCheck = isStringPalindrome("A man, a plan, a canal, Panama
 
 console.log(stringPalindromeCheck); 
 
+// OR
+
+const StringPalindrome = (str) => {
+  // First remove non-alphanumeric characters and convert to lowercase
+  let cleanedStr = '';
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if ((char >= 'a' && char <= 'z') || 
+        (char >= 'A' && char <= 'Z') || 
+        (char >= '0' && char <= '9')) {
+      cleanedStr += char.toLowerCase();
+    }
+  }
+  
+  let reversedStr = cleanedStr.split("").reverse().join("");
+  
+  return cleanedStr === reversedStr;
+};
+
+const stringPalindromeChecked = StringPalindrome("A man, a plan, a canal, Panama");
+console.log(stringPalindromeChecked); // true
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 17. Check if a String is Anagram.
