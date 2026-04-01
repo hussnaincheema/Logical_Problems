@@ -50,6 +50,16 @@ const wordCount = countWords("Hello World! 123");
 
 console.log(wordCount);
 
+// OR
+
+const countWordsInString = (str) => {
+    let words = str.trim().split(" ");
+    return words.length;
+}
+
+const countedWords = countWordsInString("Hello World Hey");
+console.log(countedWords)
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 4. How to Count Number of Sentences in a String?
@@ -62,6 +72,22 @@ const countSentences = (str) => {
 const sentenceCount = countSentences("Hello World! How are you? I am fine.");
 
 console.log(sentenceCount);
+
+// OR
+
+const countSentencesInString = (str) => {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '.' || str[i] === '!' || str[i] === '?') {
+      count++;
+    }
+  }
+  return count;
+};
+
+const sentenceCounted = countSentencesInString("Hello World! How are you? I am fine.");
+
+console.log(sentenceCounted);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -215,6 +241,8 @@ const findLargest = (arr) => {
 
 const largestNumbers = findLargest([5, 2, 9, 1, 5, 6]);
 console.log(largestNumbers);
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
