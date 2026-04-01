@@ -425,7 +425,8 @@ console.log(stringPalindromeChecked); // true
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// 17. Check if a String is Anagram.
+// 17. Check if a String is Anagram. 
+//Anagram = Two strings that contain the same characters in the same frequency, just in a different order.
 
 const areAnagrams = (str1, str2) => {
   const cleanString = (str) =>
@@ -437,6 +438,27 @@ const areAnagrams = (str1, str2) => {
 const anagramCheck = areAnagrams("listen", "silent");
 
 console.log(anagramCheck);
+
+// OR
+
+const isAnagram = (str1, str2) => {
+  // Remove spaces and convert to lowercase
+  const clean1 = str1.replace(/[^A-Za-z]/g, "").toLowerCase();
+  const clean2 = str2.replace(/[^A-Za-z]/g, "").toLowerCase();
+  
+  // If lengths differ, can't be anagrams
+  if (clean1.length !== clean2.length) return false;
+  
+  // Sort characters and compare
+  const sorted1 = clean1.split("").sort().join("");
+  const sorted2 = clean2.split("").sort().join("");
+  
+  return sorted1 === sorted2;
+};
+
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("hello", "world")); // false
+console.log(isAnagram("debit card", "bad credit")); // true
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -453,6 +475,8 @@ console.log(substringCheck);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 19. Check if a String is a Rotation of Another String.
+
+// A string rotation means taking a string and moving some characters from the beginning to the end (or vice versa) while maintaining order.
 
 const areRotations = (str1, str2) => {
   if (str1.length !== str2.length) return false;
@@ -567,8 +591,8 @@ console.log(multiplicationResult);
 //25. Find Missing Number in any array.
 
 const findMissingNumber = (arr, n) => {
-  let totalSum = (n * (n + 1)) / 2;
-  let arraySum = arr.reduce((sum, num) => sum + num, 0);
+  let totalSum = (n * (n + 1)) / 2; // Sum of first n natural numbers
+  let arraySum = arr.reduce((sum, num) => sum + num, 0); // Actual sum of array elements
 
   return totalSum - arraySum;
 };
