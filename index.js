@@ -242,7 +242,35 @@ const findLargest = (arr) => {
 const largestNumbers = findLargest([5, 2, 9, 1, 5, 6]);
 console.log(largestNumbers);
 
+// OR
 
+const LargestNumbers = (arr) => {
+    let largest = 0, secondLargest = 0, thirdLargest = 0;
+    
+    for(let i=0; i< arr.length; i++){
+        if(arr[i] > largest){
+            largest = arr[i];
+        }
+    }
+    
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] > secondLargest && arr[i] !== largest){
+            secondLargest = arr[i];
+        }
+    }
+    
+
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] > thirdLargest && arr[i] !== largest && arr[i] !== secondLargest){
+            thirdLargest = arr[i];
+        }
+    }
+    
+    return {secondLargest, thirdLargest};
+}
+
+const largest = findLargest([5, 2, 9, 1, 5, 6]);
+console.log(largest);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -271,6 +299,36 @@ const findSmallest = (arr) => {
 
 const smallestNumbers = findSmallest([5, 2, 9, 1, 5, 6]);
 console.log(smallestNumbers);
+
+// OR
+
+const smallestNumber = (arr) => {
+    
+    let smallest = arr[0], secondSmallest=arr[1], thirdSmallest=arr[2];
+    
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] < smallest){
+            smallest = arr[i];
+        }
+    }
+    
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] < secondSmallest && arr[i] !== smallest){
+            secondSmallest = arr[i];
+        }
+    }
+    
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] < thirdSmallest && arr[i] !== smallest && arr[i] !== secondSmallest){
+            thirdSmallest = arr[i];
+        }
+    }
+    
+    return {smallest, secondSmallest, thirdSmallest};
+}
+
+const smallest = findSmallest([5, 2, 9, 1, 5, 6]);
+console.log(smallest);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
