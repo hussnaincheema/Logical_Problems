@@ -3077,6 +3077,26 @@ printUser({ name: "Hussnain", age: 24 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 99. Write a function to check if Array contains a specific value.
+
+// Using Built-in Method
+
+const containsValueBuiltIn = (arr, value) => {
+  return arr.includes(value);
+}
+
+const checkContainsBuiltIn = containsValueBuiltIn([1, 2, 3, 4, 5], 3);
+
+console.log(checkContainsBuiltIn); // true
+
+const checkNotContainsBuiltIn = containsValueBuiltIn([1, 2, 3, 4, 5], 6);
+
+console.log(checkNotContainsBuiltIn); // false
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
