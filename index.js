@@ -3093,7 +3093,24 @@ const checkNotContainsBuiltIn = containsValueBuiltIn([1, 2, 3, 4, 5], 6);
 
 console.log(checkNotContainsBuiltIn); // false
 
+// Using For Loop
 
+const containsValueLoop = (arr, value) => {
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] === value){
+      return true;
+    }
+  }
+  return false;
+}
+
+const checkContainsLoop = containsValueLoop([1, 2, 3, 4, 5], 3);
+
+console.log(checkContainsLoop); // true
+
+const checkNotContainsLoop = containsValueLoop([1, 2, 3, 4, 5], 6);
+
+console.log(checkNotContainsLoop); // false
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
