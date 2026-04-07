@@ -3114,6 +3114,48 @@ console.log(checkNotContainsLoop); // false
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 100. write a function to calculate sum of all digits of a number.
+
+// Using For Loop
+
+const sumOfDigitsLoop = (num) => {
+  let sum = 0;
+  const numStr = Math.abs(num).toString(); // handle negative numbers
+
+  for(let i=0; i<numStr.length; i++){
+    sum += parseInt(numStr[i]);
+  }
+
+  return sum;
+}
+
+const sumDigitsLoop = sumOfDigitsLoop(1234);
+
+console.log(sumDigitsLoop); // 10
+
+const sumDigitsNegativeLoop = sumOfDigitsLoop(-567);
+
+console.log(sumDigitsNegativeLoop); // 18
+
+// Using Built-in Methods
+
+const sumOfDigitsBuiltIn = (num) => {
+  return Math.abs(num)
+    .toString()
+    .split("")
+    .reduce((acc, digit) => acc + parseInt(digit), 0);
+}
+
+const sumDigitsBuiltIn = sumOfDigitsBuiltIn(1234);
+
+console.log(sumDigitsBuiltIn); // 10
+
+const sumDigitsNegativeBuiltIn = sumOfDigitsBuiltIn(-567);
+
+console.log(sumDigitsNegativeBuiltIn); // 18 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
