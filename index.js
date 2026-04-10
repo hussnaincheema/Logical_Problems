@@ -214,6 +214,20 @@ const swapped = swapNumbers(5, 10);
 
 console.log(swapped);
 
+// Using Arithmetic Operations
+
+const swapWithoutTemp = (a, b) => {
+  a = a + b; // a now holds the sum of a and b
+  b = a - b; // b now holds the original value of a
+  a = a - b; // a now holds the original value of b
+
+  return [a, b];
+};
+
+const swappedWithoutTemp = swapWithoutTemp(5, 10);
+
+console.log(swappedWithoutTemp);  
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 11. Find Second Largest and Third Largest Numbers.
