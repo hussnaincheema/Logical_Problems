@@ -1662,7 +1662,7 @@ console.log(reversedLoop);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// 57. Count the frequesncy of each element in an Array.
+// 57. Count the frequency of each element in an Array.
 
 // Using Reduce Method
 
