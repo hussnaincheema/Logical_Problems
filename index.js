@@ -3170,6 +3170,35 @@ console.log(sumDigitsNegativeBuiltIn); // 18
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 101. Write a function to find the largest element in nested Arrays.
+
+// Using For Loop
+
+const largestInNestedArraysLoop = (arr) => {
+  let largest = -Infinity;
+
+  for(let i=0; i<arr.length; i++){
+    if(Array.isArray(arr[i])){
+      const nestedLargest = largestInNestedArraysLoop(arr[i]);
+      if(nestedLargest > largest){
+        largest = nestedLargest;
+      }
+    } else if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+
+  return largest;
+}
+
+const largestInNestedArray = [1, [2, 3], [4, [5, 6]], 7];
+console.log(largestInNestedArraysLoop(largestInNestedArray)); // 7
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
