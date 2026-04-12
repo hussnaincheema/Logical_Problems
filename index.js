@@ -3194,7 +3194,15 @@ const largestInNestedArraysLoop = (arr) => {
 const largestInNestedArray = [1, [2, 3], [4, [5, 6]], 7];
 console.log(largestInNestedArraysLoop(largestInNestedArray)); // 7
 
+// Using Built-in Methods
 
+const largestInNestedArraysBuiltIn = (arr) => {
+  const flatten = (arr) => arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val), []);
+  return Math.max(...flatten(arr));
+}
+
+const nestedArrayBuiltIn = [1, [2, 3], [4, [5, 6]], 7];
+console.log(largestInNestedArraysBuiltIn(nestedArrayBuiltIn)); // 7 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
