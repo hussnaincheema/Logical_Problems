@@ -3227,6 +3227,19 @@ console.log(checkStringsEqualLoop); // true
 
 const checkStringsNotEqualLoop = areStringsEqualLoop("hello", "world");
 console.log(checkStringsNotEqualLoop); // false
+
+// Using Built-in Methods
+
+const areStringsEqualBuiltIn = (str1, str2) => {
+  return str1.localeCompare(str2) === 0;
+}
+
+const checkStringsEqualBuiltIn = areStringsEqualBuiltIn("hello", "hello");
+console.log(checkStringsEqualBuiltIn); // true
+
+const checkStringsNotEqualBuiltIn = areStringsEqualBuiltIn("hello", "world");
+console.log(checkStringsNotEqualBuiltIn); // false
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //OUTPUT BASED QUESTIONS
