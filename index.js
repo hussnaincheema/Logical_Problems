@@ -3204,7 +3204,29 @@ const largestInNestedArraysBuiltIn = (arr) => {
 const nestedArrayBuiltIn = [1, [2, 3], [4, [5, 6]], 7];
 console.log(largestInNestedArraysBuiltIn(nestedArrayBuiltIn)); // 7 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 102. Write a function to check if Two Strings are equal without using the equality operator (== or ===).
+
+// Using For Loop
+
+const areStringsEqualLoop = (str1, str2) => {
+  if (str1.length !== str2.length) return false;
+
+  for(let i=0; i<str1.length; i++){
+    if(str1.charCodeAt(i) !== str2.charCodeAt(i)){
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const checkStringsEqualLoop = areStringsEqualLoop("hello", "hello");
+console.log(checkStringsEqualLoop); // true
+
+const checkStringsNotEqualLoop = areStringsEqualLoop("hello", "world");
+console.log(checkStringsNotEqualLoop); // false
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //OUTPUT BASED QUESTIONS
