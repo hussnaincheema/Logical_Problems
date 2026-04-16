@@ -3242,6 +3242,27 @@ console.log(checkStringsNotEqualBuiltIn); // false
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 103. Write a function to check if all numbers in an array are positive.
+
+// Using For Loop
+
+const areAllPositiveLoop = (arr) => {
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] <= 0){
+      return false;
+    }
+  }
+  return true;
+}
+
+const checkAllPositiveLoop = areAllPositiveLoop([1, 2, 3, 4, 5]);
+console.log(checkAllPositiveLoop); // true
+
+const checkNotAllPositiveLoop = areAllPositiveLoop([1, -2, 3, 4, 5]);
+console.log(checkNotAllPositiveLoop); // false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
