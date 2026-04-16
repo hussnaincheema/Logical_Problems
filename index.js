@@ -3261,6 +3261,18 @@ console.log(checkAllPositiveLoop); // true
 const checkNotAllPositiveLoop = areAllPositiveLoop([1, -2, 3, 4, 5]);
 console.log(checkNotAllPositiveLoop); // false
 
+// Using Built-in Methods
+
+const areAllPositiveBuiltIn = (arr) => {
+  return arr.every(num => num > 0);
+}
+
+const checkAllPositiveBuiltIn = areAllPositiveBuiltIn([1, 2, 3, 4, 5]);
+console.log(checkAllPositiveBuiltIn); // true
+
+const checkNotAllPositiveBuiltIn = areAllPositiveBuiltIn([1, -2, 3, 4, 5]);
+console.log(checkNotAllPositiveBuiltIn); // false
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //OUTPUT BASED QUESTIONS
