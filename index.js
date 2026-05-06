@@ -3275,6 +3275,38 @@ console.log(checkNotAllPositiveBuiltIn); // false
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 104. Write a function to find middle element of an array. 
+
+// Using For Loop
+
+const findMiddle = (arr) => {
+  const mid = arr.length / 2;
+
+  return arr.length % 2 === 0
+    ? [arr[mid - 1], arr[mid]]   // even length → return two middle elements
+    : arr[Math.floor(mid)];      // odd length → return single middle element
+};
+
+// Examples
+console.log(findMiddle([10, 20, 30, 40, 50])); // 30
+console.log(findMiddle([10, 20, 30, 40]));     // [20, 30]
+
+// Using Built-in Methods
+
+const findMiddleBuiltIn = (arr) => {
+  const mid = arr.length / 2; 
+
+  return arr.length % 2 === 0
+    ? arr.slice(mid - 1, mid + 1) // even length → slice two middle elements
+    : arr[Math.floor(mid)];        // odd length → return single middle element
+};
+
+// Examples
+console.log(findMiddleBuiltIn([10, 20, 30, 40, 50])); // 30
+console.log(findMiddleBuiltIn([10, 20, 30, 40]));     // [20, 30]
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
