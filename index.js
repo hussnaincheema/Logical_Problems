@@ -3307,6 +3307,34 @@ console.log(findMiddleBuiltIn([10, 20, 30, 40]));     // [20, 30]
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 105. Write a function to find difference of max and min in an array.
+
+// Using For Loop
+
+const maxMinDifferenceLoop = (arr) => {
+  if (arr.length === 0) return 0; // handle empty array case
+
+  let max = arr[0];
+  let min = arr[0];
+
+  for(let i=1; i<arr.length; i++){
+    if(arr[i] > max){
+      max = arr[i];
+    }
+    if(arr[i] < min){
+      min = arr[i];
+    }
+  }
+
+  return max - min;
+}
+
+const differenceLoop = maxMinDifferenceLoop([10, 20, 5, 15]);
+console.log(differenceLoop); // 15 (20 - 5)
+ 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //OUTPUT BASED QUESTIONS
 
 myFunc();
