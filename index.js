@@ -3332,6 +3332,19 @@ const maxMinDifferenceLoop = (arr) => {
 const differenceLoop = maxMinDifferenceLoop([10, 20, 5, 15]);
 console.log(differenceLoop); // 15 (20 - 5)
  
+// Using Built-in Methods
+
+const maxMinDifferenceBuiltIn = (arr) => {
+  if (arr.length === 0) return 0;
+  
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  
+  return max - min;
+}
+
+const differenceBuiltIn = maxMinDifferenceBuiltIn([10, 20, 5, 15]);
+console.log(differenceBuiltIn); // 15 (20 - 5) 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
